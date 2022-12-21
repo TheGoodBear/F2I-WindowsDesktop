@@ -1,0 +1,80 @@
+﻿<Window x:Class="WPFSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <Border
+                Background="LightSteelBlue" />
+            <TextBlock 
+                Name="lblTitle" 
+                FontSize="30"
+                HorizontalAlignment="Center"/>
+        </Grid>
+
+        <ListView 
+            Name="lstAnimals"
+            Grid.Row="1"
+            Grid.Column="0"
+            FontSize="24" 
+            SelectionChanged="lstAnimals_SelectionChanged" />
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Orientation="Vertical">
+            <TextBox
+                Name="txtName"
+                FontSize="18"
+                ToolTip="Nom de l'animal"
+                Margin="10" />
+            <TextBox
+                Name="txtDescription"
+                FontSize="18"
+                ToolTip="Description"
+                Margin="10" />
+            <TextBlock 
+                Name="lblStatus" 
+                FontSize="14"
+                HorizontalAlignment="Center"
+                TextWrapping="Wrap"
+                Margin="10 20"/>
+            <Button
+                Name="btnAdd"
+                Content="Ajouter"
+                FontSize="24"
+                Background="Lavender"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Margin="10" 
+                Click="btnAdd_Click" />
+            <Button
+                Name="btnEdit"
+                Content="Modifier"
+                FontSize="24"
+                Background="Lavender"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Margin="10" 
+                Click="btnEdit_Click" />
+        </StackPanel>
+
+    </Grid>
+</Window>
