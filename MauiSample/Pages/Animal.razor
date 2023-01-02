@@ -1,0 +1,23 @@
+﻿@page "/animal"
+
+@inject MauiSample.ViewModels.AnimalVM VM
+
+<h1>@VM.Title</h1>
+
+@if (VM.Animals.Count == 0)
+{
+    <div>Liste vide</div>
+}
+else
+{
+    <table class="IndexTable">
+        @foreach (var Animal in VM.Animals)
+        {
+            <tr>
+                <td>
+                    @Animal
+                </td>
+            </tr>
+        }
+    </table>
+}
