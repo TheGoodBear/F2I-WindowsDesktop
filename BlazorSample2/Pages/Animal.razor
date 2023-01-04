@@ -1,0 +1,86 @@
+﻿@page "/animal"
+
+@using BlazorSample2.Models
+@inject BlazorSample2.ViewModels.AnimalVM VM
+
+<h1>@VM.Title</h1>
+<button class="btn btn-primary"
+    @onclick="(() => VM.Add())">
+    Ajouter un nouvel animal
+</button>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-8">
+            @if (VM.Animals.Count == 0)
+            {
+                <div>Liste vide</div>
+            }
+            else
+            {
+                <table class="IndexTable">
+                    <tbody>
+                        @foreach (var Animal in VM.Animals)
+                        {
+                            <tr>
+                                <td>
+                                    @Animal
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary"
+                                        @onclick="(() => VM.Edit(Animal.ID))">
+                                        Modifier
+                                    </button>
+                                    <button class="btn btn-primary"
+                                        @onclick="(async () => await VM.Delete(Animal.ID))">
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+
+        <div class="col-md-4 EditForm">
+
+            <label class="@VM.FormMessageClass ">
+                @VM.FormMessage
+            </label>
+
+            <h3>@VM.FormTitle</h3>
+
+            <EditForm class="@VM.FormVisibility"
+                      Model="VM.AnimalModel">
+                <input class="form-control"
+                       type="text"
+                       placeholder="Nom de l'animal"
+                       @bind="VM.AnimalModel.Name" />
+                <input class="form-control"
+                       type="text"
+                       placeholder="Description"
+                       @bind="VM.AnimalModel.Description" />
+                <button class="btn btn-primary"
+                        @onclick="(async () => await VM.ValidateAnimal())">
+                    Valider
+                </button>
+                <button class="btn btn-primary"
+                        @onclick="(() => VM.Cancel())">
+                    Annuler
+                </button>
+            </EditForm>
+
+            <hr />
+
+            <button class="btn btn-primary"
+                    disabled="@VM.AddAnimalFromPoolDisabled"
+                    @onclick="(async () => await VM.AddFromPool())">
+                @VM.AddAnimalFromPoolText
+            </button>
+
+        </div>
+
+    </div>
+</div>
