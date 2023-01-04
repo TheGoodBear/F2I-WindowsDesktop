@@ -8,7 +8,7 @@ internal class Animal
 {
 	// static properties
 	private static int NextID = 1;
-	public static Collection<Animal> Animals = new Collection<Animal>();
+	public static List<Animal> Animals = new List<Animal>();
 
 	// properties
 	public int ID { get; set; }

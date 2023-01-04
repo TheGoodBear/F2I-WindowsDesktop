@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MauiSample.Models;
+namespace BlazorSample.Models;
 
 internal class Animal
 {

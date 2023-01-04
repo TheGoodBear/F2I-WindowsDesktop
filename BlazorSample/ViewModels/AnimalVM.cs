@@ -1,7 +1,7 @@
-﻿using MauiSample.Models;
+﻿using BlazorSample.Models;
 using System.Collections.ObjectModel;
 
-namespace MauiSample.ViewModels;
+namespace BlazorSample.ViewModels;
 
 internal class AnimalVM
 {

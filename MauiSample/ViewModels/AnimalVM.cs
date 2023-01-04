@@ -15,7 +15,7 @@ internal class AnimalVM
     public bool AddAnimalFromPoolDisabled { get; set; }
 
     // data properties
-    public Collection<Animal> Animals { get; set; }
+    public List<Animal> Animals { get; set; }
     public Animal AnimalModel { get; set; } = new Animal();
     private static List<Tuple<string, string>> AnimalPool =
         new List<Tuple<string, string>>();
