@@ -23,8 +23,7 @@ public static class MauiProgram
 #endif
 
         // database parameters
-        //string DBPath = FileAccessHelper.GetLocalFilePath("MauiSample2.sqlite3");
-        string DBPath = "MauiSample2.sqlite3";
+        string DBPath = FileAccessHelper.GetLocalFilePath("MauiSample2.sqlite3");
         string DBStructurePath = "Data.DBStructure-SQLite3.sql";
         string InitialDataPath = "Data.InitialData-SQLite3.sql";
         DBUtil.DBPath = DBPath;
